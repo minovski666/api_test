@@ -28,8 +28,11 @@ class ApiService
         ));
 
         $response = curl_exec($curl);
-
         curl_close($curl);
-        return json_decode($response);
+        if ($response){
+            return json_decode($response);
+        }else {
+            return 'error';
+        }
     }
 }

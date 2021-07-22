@@ -15,7 +15,9 @@ class ApiController extends Controller
     public function index()
     {
         $data = $this->apiService->getData();
-//        return $data;
+        if ($data === 'error'){
+            return $data;
+        }
         return view('restaurants', compact('data'));
     }
 }
